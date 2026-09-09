@@ -1,0 +1,105 @@
+name: Bloqueo técnico
+description: Publique un problema que lleva más de tres días sin resolver
+title: "[BLOQUEO] "
+labels: ["estado:abierto"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Antes de abrir el bloqueo, revise si ya existe una entrada en `entradas/`
+        o un issue abierto sobre lo mismo. Si lo hay, comente ahí en vez de duplicar.
+
+  - type: input
+    id: equipo
+    attributes:
+      label: Equipo
+      placeholder: "Equipo 3"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: grupo
+    attributes:
+      label: Grupo
+      options:
+        - "Grupo 1 (jueves 8:00 - 10:00 a. m.)"
+        - "Grupo 2 (jueves 10:00 - 12:00 m.)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: ruta
+    attributes:
+      label: Ruta de profundización
+      options:
+        - "A - Contenerización y DevOps"
+        - "B - Tiempo real y AJAX avanzado"
+        - "C - PWA y funcionamiento sin conexión"
+        - "D - API-first y datos abiertos"
+        - "E - Modelos de lenguaje en la web"
+        - "F - Comercio electrónico y pagos"
+        - "G - Seguridad web"
+        - "H - Visualización y web geoespacial"
+        - "I - Telemetría IoT simulada"
+    validations:
+      required: true
+
+  - type: textarea
+    id: sintoma
+    attributes:
+      label: Síntoma
+      description: Qué observa exactamente. Mensaje de error literal, código de estado, comportamiento inesperado.
+      placeholder: |
+        Al enviar el formulario, el navegador bloquea la petición y en consola aparece:
+        "Access to fetch at ... has been blocked by CORS policy"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproducir
+    attributes:
+      label: Cómo reproducirlo
+      description: Pasos mínimos para que otra persona vea el mismo error.
+      placeholder: |
+        1. Levantar el backend con docker compose up
+        2. Abrir el frontend en localhost:5173
+        3. Enviar el formulario de registro
+    validations:
+      required: true
+
+  - type: textarea
+    id: intentos
+    attributes:
+      label: Qué ya intentó
+      description: Campo obligatorio. Un bloqueo sin intentos previos no es un bloqueo, es una pregunta sin hacer.
+      placeholder: |
+        - Agregué el middleware de CORS, sigue igual
+        - Revisé que el puerto del frontend coincida con el origen permitido
+        - Busqué en MDN la sección de preflight, no logré aplicarlo
+    validations:
+      required: true
+
+  - type: textarea
+    id: entorno
+    attributes:
+      label: Entorno
+      description: Versiones y sistema operativo, cuando sean relevantes.
+      placeholder: "Node 22 LTS, Docker 27, Ubuntu 24.04, Chrome 130"
+
+  - type: checkboxes
+    id: riesgo
+    attributes:
+      label: Impacto
+      options:
+        - label: Este bloqueo pone en riesgo la próxima entrega
+          required: false
+
+  - type: checkboxes
+    id: higiene
+    attributes:
+      label: Verificación antes de publicar
+      options:
+        - label: No incluí credenciales, tokens ni contenido de archivos .env
+          required: true
+        - label: No incluí datos personales reales de terceros
+          required: true
