@@ -112,7 +112,7 @@ aunque después se borre el commit.
     ├── ISSUE_TEMPLATE/          Plantilla de bloqueo
     └── PULL_REQUEST_TEMPLATE.md Plantilla de entrada al banco
 ```
-
+| **Muro de bloqueos** | [Tablero](URL_DEL_TABLERO) y pestaña Issues | Hacer visible en qué está atascado cada equipo |
 ---
 
 *Electiva de Profundización — Componente Desarrollo Web · Noveno semestre · Semestre 2026-B*
